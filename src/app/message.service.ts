@@ -45,7 +45,7 @@ export class MessageService {
     const q = query(messagesRef, orderBy('timestamp', 'desc'), limit(50));
 
     onSnapshot(q, (snapshot) => {
-      const newMessages = snapshot.docs.map(doc => doc.data().text).reverse();
+      const newMessages = snapshot.docs.map(doc => doc.data()['text']).reverse();
       this.messages = newMessages;
       this.messagesSubject.next(this.messages);
     });

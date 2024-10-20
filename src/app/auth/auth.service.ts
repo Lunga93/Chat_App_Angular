@@ -16,9 +16,9 @@ export class AuthService {
   }
 
   initRecaptcha(buttonId: string) {
-    const recaptchaVerifier = new RecaptchaVerifier(buttonId, {
-      'size': 'invisible',
-    }, this.auth);
+    const recaptchaVerifier = new RecaptchaVerifier(this.auth, buttonId, {
+      'size' : 'invisible',
+    });    
     return recaptchaVerifier;
   }
 
