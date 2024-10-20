@@ -1,0 +1,15 @@
+<div class="chat-container">
+  <div class="messages" #scrollContainer>
+    <div *ngFor="let message of messages; let i = index" 
+         class="message"
+         [@messageAnimation]="i === messages.length - 1 ? 'new' : 'old'">
+      {{ message }}
+    </div>
+  </div>
+  <div class="input-container">
+    <input [(ngModel)]="newMessage" 
+           (keyup.enter)="sendMessage()" 
+           placeholder="Type a message...">
+    <button (click)="sendMessage()" [@buttonAnimation]>Send</button>
+  </div>
+</div>
