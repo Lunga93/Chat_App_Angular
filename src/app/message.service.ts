@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, limit, Firestore, DocumentData } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, limit, Firestore, DocumentData, serverTimestamp } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  // Replace with your Firebase configuration
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDU4LuIqEN90omIf642TTuBqgb6UAJ01OI",
+  authDomain: "angular-chat-app-9f721.firebaseapp.com",
+  projectId: "angular-chat-app-9f721",
+  storageBucket: "angular-chat-app-9f721.appspot.com",
+  messagingSenderId: "760339020470",
+  appId: "1:760339020470:web:7ad1c00da8f69a1f3fc417",
+  measurementId: "G-PRMSYFBWJS"
 };
 
 @Injectable({
@@ -64,7 +64,7 @@ export class MessageService {
 
     const messageData = {
       text: message,
-      timestamp: new Date(),
+      timestamp: serverTimestamp(),
       userId: user.uid
     };
 
